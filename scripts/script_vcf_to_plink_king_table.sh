@@ -22,8 +22,8 @@ mkdir $trio
 cd $trio
 
 #To remove multiallelic from vcf files using "bcftools norm"
-
-bcftools norm -Ov -m -any $vcf  | bcftools norm -Ov -f $fasta  >  $trio.norm.vcf
+# FELIX: Skip this step -> Have to give a 'splitted + norm' VCF as input
+bcftools view -Ov $vcf > $trio.norm.vcf
 
 
 #Obtain kinship using plink2 (required v2.0) -make-king-table to obtain a table .kin0: 
