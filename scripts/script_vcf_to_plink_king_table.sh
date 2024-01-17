@@ -30,14 +30,16 @@ bcftools view -Ov $vcf > $trio.norm.vcf
 
 plink2 --vcf $trio.norm.vcf  --make-king-table --allow-extra-chr --out $trio.king.table
 
-cd ..
 
 ############################################################################
 #Optional:
 #to obtain kinship coeficients in a matrix form .king ( to heatmap graphs) using --make-king:
-#plink2 --vcf /path/to/merge.vcf  --make-king --allow-extra-chr --out path/to/results/merge.king.matrix
+#plink2 --vcf $trio.norm.vcf  --make-king --allow-extra-chr --out $trio.king.table
 
 #############################################################################
+
+
+cd ..
 
 
 #############################################################################
