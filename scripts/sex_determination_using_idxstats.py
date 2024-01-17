@@ -23,7 +23,7 @@ def check_arg(args=None):
     parser.add_argument('--bed', required= True,
                                     help = 'Bed file including path where is stored.')
     parser.add_argument('--out',  required= True,
-                                    help = 'csv file name incluiding path where the csv file will be stored.')
+                                    help = 'TSV file name including path where the TAB-separated file will be stored.')
 
 
     return parser.parse_args()
@@ -160,7 +160,7 @@ if __name__ == '__main__' :
     outfile = arguments.out
     header = sorted(set(i for b in map(dict.keys, dic.values()) for i in b))
     with open(outfile, 'w', newline="") as f:
-        write = csv.writer(f)
+        write = csv.writer(f, delimiter='\t')
         write.writerow(['sample', *header])
         for a, b in dic.items():
             write.writerow([a]+[b.get(i, '') for i in header])
